@@ -36,6 +36,24 @@
         </interface>
     </hal>
     <hal format="hidl">
+        <name>android.hardware.boot</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IBootControl</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.broadcastradio</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IBroadcastRadioFactory</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
         <name>android.hardware.camera.provider</name>
         <transport>hwbinder</transport>
         <version>2.4</version>
@@ -69,10 +87,12 @@
         <interface>
             <name>ICryptoFactory</name>
             <instance>default</instance>
+            <instance>widevine</instance>
         </interface>
         <interface>
             <name>IDrmFactory</name>
             <instance>default</instance>
+            <instance>widevine</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -91,7 +111,6 @@
         <interface>
             <name>IGnss</name>
             <instance>default</instance>
-            <instance>gnss_vendor</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -191,7 +210,7 @@
     <hal format="hidl">
         <name>android.hardware.power</name>
         <transport>hwbinder</transport>
-        <version>1.1</version>
+        <version>1.0</version>
         <interface>
             <name>IPower</name>
             <instance>default</instance>
@@ -226,6 +245,10 @@
         <name>android.hardware.renderscript</name>
         <transport arch="32+64">passthrough</transport>
         <version>1.0</version>
+        <interface>
+            <name>IDevice</name>
+            <instance>default</instance>
+        </interface>
     </hal>
     <hal format="hidl">
         <name>android.hardware.sensors</name>
@@ -291,18 +314,9 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.vr</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IVr</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
         <name>android.hardware.wifi</name>
         <transport>hwbinder</transport>
-        <version>1.1</version>
+        <version>1.0</version>
         <interface>
             <name>IWifi</name>
             <instance>default</instance>
@@ -322,6 +336,10 @@
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
+            <name>IFingerprintAuthenticator</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
             <name>IFingerprintCalibration</name>
             <instance>default</instance>
         </interface>
@@ -338,7 +356,29 @@
             <instance>default</instance>
         </interface>
         <interface>
+            <name>IFingerprintSenseTouch</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
             <name>IFingerprintSensorTest</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>com.qualcomm.qti.ant</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAntHci</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>com.qualcomm.qti.bluetooth_audio</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IBluetoothAudio</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -370,11 +410,33 @@
         </interface>
     </hal>
     <hal format="hidl">
+        <name>com.qualcomm.qti.wifidisplayhal</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDSManager</name>
+            <instance>wifidisplaydshal</instance>
+        </interface>
+        <interface>
+            <name>IHDCPSession</name>
+            <instance>wifidisplayhdcphal</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
         <name>com.quicinc.cne.api</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
             <name>IApiService</name>
+            <instance>cnd</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>com.quicinc.cne.server</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IServer</name>
             <instance>cnd</instance>
         </interface>
     </hal>
@@ -399,7 +461,7 @@
     <hal format="hidl">
         <name>vendor.display.config</name>
         <transport>hwbinder</transport>
-        <version>1.1</version>
+        <version>1.0</version>
         <interface>
             <name>IDisplayConfig</name>
             <instance>default</instance>
@@ -415,11 +477,20 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.qti.esepowermanager</name>
+        <name>vendor.goodix.hardware.fingerprint</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>IEsePowerManager</name>
+            <name>IGoodixBiometricsFingerprint</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.nxp.hardware.nfc</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>INqNfc</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -433,11 +504,74 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.qti.hardware.iop</name>
+        <name>vendor.qti.hardware.alarm</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>IIop</name>
+            <name>IAlarm</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.data.latency</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ILinkLatency</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.factory</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IFactory</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.fm</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IFmHci</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.improvetouch.blobmanager</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IBlobManager</name>
+            <instance>BlobManagerService</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.improvetouch.gesturemanager</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IGestureManager</name>
+            <instance>GestureManagerService</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.improvetouch.touchcompanion</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ITouchCompanion</name>
+            <instance>TouchCompanionService</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.perf</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IPerf</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -474,6 +608,25 @@
         </interface>
     </hal>
     <hal format="hidl">
+        <name>vendor.qti.hardware.radio.atcmdfwd</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAtCmdFwd</name>
+            <instance>AtCmdFwdService</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.radio.config</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IConfig</name>
+            <instance>radioconfig0</instance>
+            <instance>radioconfig1</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
         <name>vendor.qti.hardware.radio.ims</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -490,6 +643,7 @@
         <interface>
             <name>IUimLpa</name>
             <instance>UimLpa0</instance>
+            <instance>UimLpa1</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -543,6 +697,24 @@
         </interface>
     </hal>
     <hal format="hidl">
+        <name>vendor.qti.hardware.tui_comm</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ITuiComm</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.wifi.keystore</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IKeystoreExt</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
         <name>vendor.qti.imsrtpservice</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -552,12 +724,51 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.lineage.livedisplay</name>
+        <name>vendor.xiaomi.hardware.mfidoca</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>IColor</name>
+            <name>IFidoService</name>
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl">
+        <name>vendor.xiaomi.hardware.mlipay</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IMlipayService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.xiaomi.hardware.mtdservice</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IMTService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.xiaomi.hardware.tidaservice</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ITidaService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.xiaomi.hardware.vsimapp</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IVSIMService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <sepolicy>
+        <version>27.0</version>
+    </sepolicy>
 </manifest>
